@@ -1,3 +1,5 @@
+import './js/weather/getData';
+
 async function getComponent() {
 
     const element = document.createElement('div');
