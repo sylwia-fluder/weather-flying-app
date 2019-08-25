@@ -1,20 +1,8 @@
-import getFlight from './flight';
+import getFlightData from './js/flights/flight';
 //style.scss import
 import '../src/style.scss';
+console.log('start');
 
-async function getComponent() {
-
-    const element = document.createElement('div');
-    const { default: _ } = await
-    import ( /* webpackChunkName: "lodash" */ 'lodash');
-
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-    return element;
-}
-
-getComponent().then(component => {
-    document.body.appendChild(component);
+getFlightData('Warszawa').then(data => {
+  console.log(data);
 });
-
-getFlight();
