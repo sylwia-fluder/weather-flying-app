@@ -3,6 +3,6 @@ import getFlightData from './js/flights/flight';
 import '../src/style.scss';
 console.log('start');
 
-getFlightData('Warszawa').then(data => {
+getFlightData('Krakow').then(data => {
   console.log(data);
 });
