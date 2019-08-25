@@ -1,4 +1,7 @@
-import './js/weather/getData';
+//style.scss import
+import '../src/style.scss';
+
+import './js/index';
 
 async function getComponent() {
 

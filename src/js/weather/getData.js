@@ -7,10 +7,7 @@ const addCityNameToParams = cityName => ({
 });
 
 const getWeather = cityName =>
-    fetch(urlWithParams(
-        OWM.URL,
-        addCityNameToParams(cityName)
-    ))
+    fetch(urlWithParams(OWM.URL, addCityNameToParams(cityName)))
         .then(response => response.json())
         .then(data => {
             switch (data.cod) {
@@ -27,6 +24,10 @@ const getWeather = cityName =>
         .catch(e =>
             console.log('getWeather: ', e)
         );
+
+export {
+    getWeather,
+};
 
 // examples
 getWeather('London');
