@@ -13,6 +13,7 @@
     --flight-box-color: rgba(255, 255, 255, 0.8);
     --flight-box-button-color: rgb(123, 182, 251);
     --font-color-about: rgb(43, 43, 43);
+    --font-color-icon: rgb(100, 100, 100);
     //fonts
     --roboto: "Roboto", sans-serif;
 }
@@ -168,4 +169,41 @@ footer {
     font-weight: 200;
     font-style: italic;
     letter-spacing: 2px;
+}
+.box-container {
+    margin: auto;
+    max-width: 50%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.box-author {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh;
+    width: 20%;
+    height: 20vh;
+}
+
+.box-author i{
+    color: var(--font-color-icon);
+}
+
+.author-name {
+    margin-top: 0.5vh;
+    font-family: var(--roboto);
+    font-size: 15px;
+    color: var(--font-color-about)
+}
+
+.author-text {
+    margin-top: 0.5vh;
+    font-family: var(--roboto);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--font-color-about);
 }
