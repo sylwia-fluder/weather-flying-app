@@ -1,3 +1,6 @@
+//style.scss import
+import '../src/style.scss';
+
 async function getComponent() {
 
     const element = document.createElement('div');
