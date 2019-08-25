@@ -6,29 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <title>Weather Flying App</title>
 </head>
 
 <body>
     <header>
-            <img class="logo"  alt="logo" src="<%=require("../src/images/logo.png")%>" />
+        <img class="logo" alt="logo" src="<%=require("../src/images/logo.png")%>" />
     </header>
-    <nav>
-        <ul class="menu"> 
-            <li><a href="#" class="link active-link" data-target="flights">Flights</a></li>
-            <li><a href="#" class="link" data-target="my_flights">My Flights</a></li>
-            <li><a href="#" class="link" data-target="about">About</a></li>
-            <li><a href="#" class="link" data-target="authors">Authors</a></li>
-        </ul>
-    </nav>
-    <h2 class="question">Where do you want to go?</h2>
-    <form class="box-search" action="">
-        <input type="text" placeholder="Type a city..." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+    <section class="flights">
+        <nav>
+            <ul class="menu">
+                <li><a href="#" class="link active-link" data-target="flights">Flights</a></li>
+                <li><a href="#" class="link" data-target="my_flights">My Flights</a></li>
+                <li><a href="#" class="link" data-target="about">About</a></li>
+                <li><a href="#" class="link" data-target="authors">Authors</a></li>
+            </ul>
+        </nav>
+        <h2 class="question">Where do you want to go?</h2>
+        <form class="box-search" action="">
+            <input type="text" placeholder="Type a city..." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <!-- flights section -->
+    </section>
+    <section class="my-flights inactive">
+        <nav>
+            <ul class="menu">
+                <li><a href="#" class="link active-link" data-target="flights">Flights</a></li>
+                <li><a href="#" class="link" data-target="my_flights">My Flights</a></li>
+                <li><a href="#" class="link" data-target="about">About</a></li>
+                <li><a href="#" class="link" data-target="authors">Authors</a></li>
+            </ul>
+        </nav>
+        <!-- my flights sectiom -->
+    </section>
+    <section class="about inactive">
+        <nav>
+            <ul class="menu">
+                <li><a href="#" class="link active-link" data-target="flights">Flights</a></li>
+                <li><a href="#" class="link" data-target="my_flights">My Flights</a></li>
+                <li><a href="#" class="link" data-target="about">About</a></li>
+                <li><a href="#" class="link" data-target="authors">Authors</a></li>
+            </ul>
+        </nav>
+        <!-- about section  -->
+    </section>
+    <section class="authors inactive">
+        <nav>
+            <ul class="menu">
+                <li><a href="#" class="link active-link" data-target="flights">Flights</a></li>
+                <li><a href="#" class="link" data-target="my_flights">My Flights</a></li>
+                <li><a href="#" class="link" data-target="about">About</a></li>
+                <li><a href="#" class="link" data-target="authors">Authors</a></li>
+            </ul>
+        </nav>
+        <!-- authors section -->
+    </section>
     <footer>
-        <p>©CC2019</p>
+        <p class="foot-text">©CC2019</p>
     </footer>
 </body>
 
