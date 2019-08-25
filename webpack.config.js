@@ -6,7 +6,7 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        app: './src/index.js'
+        app: ['babel-polyfill', './src/index.js']
     },
     devtool: 'inline-source-map',
     devServer: {

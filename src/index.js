@@ -1,4 +1,6 @@
 import getFlight from './flight';
+//style.scss import
+import '../src/style.scss';
 
 async function getComponent() {
 
