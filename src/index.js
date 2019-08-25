@@ -1,3 +1,5 @@
+import getFlight from './flight';
+
 async function getComponent() {
 
     const element = document.createElement('div');
@@ -12,3 +14,5 @@ async function getComponent() {
 getComponent().then(component => {
     document.body.appendChild(component);
 });
+
+getFlight();
