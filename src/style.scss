@@ -18,6 +18,14 @@
     --roboto: "Roboto", sans-serif;
 }
 
+.inactive {
+    display: none;
+  }
+  
+  .active {
+    display: unset;
+  }
+
 
 * {
     margin: 0px;
@@ -143,9 +151,7 @@ footer {
     margin: 0.5vh auto 0.2vh auto;
 }
 
-.inactive {
-    display: none;
-}
+
 
 .box {
     background-color: var(--flight-box-color);

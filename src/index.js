@@ -1,17 +1,20 @@
 //style.scss import
 import '../src/style.scss';
 
-async function getComponent() {
+import '../src/singlePageApplication';
 
-    const element = document.createElement('div');
-    const { default: _ } = await
-    import ( /* webpackChunkName: "lodash" */ 'lodash');
+// async function getComponent() {
 
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+//     const element = document.createElement('div');
+//     const { default: _ } = await
+//     import ( /* webpackChunkName: "lodash" */ 'lodash');
 
-    return element;
-}
+//     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
-getComponent().then(component => {
-    document.body.appendChild(component);
-});
+//     return element;
+// }
+
+// getComponent().then(component => {
+//     document.body.appendChild(component);
+// });
+
