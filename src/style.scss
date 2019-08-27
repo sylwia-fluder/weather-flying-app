@@ -6,6 +6,7 @@
     --box-shadow-all: 3px 3px 10px rgba(0, 0, 0, 0.25);
     --text-shadow-menu: 2px 3px 4px rgba(0, 0, 0, 0.25);
     --text-shadow-question: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    --hover-button-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
     //colors
     --white-color: rgb(255, 255, 255);
     --white-border: rgb(255, 255, 255);
@@ -273,6 +274,7 @@ footer {
 
 .arrow {
     grid-area: arrow;
+    justify-self: center;
 }
 
 .price-label {
@@ -293,15 +295,16 @@ footer {
 #select {
     grid-area: select-button;
     font-size: 30px;
-    padding: 5px 5px;
+    padding: 5px 20px;
     box-shadow: var(--box-shadow-all);
     background-color: var(--flight-box-button-color);
     border: none;
     color: var(--white-color);
     border-radius: 10px;
+    justify-self: center;
 }
 
 #select:hover{
     cursor: pointer;
-    filter: var(--box-shadow-filter);
+    box-shadow: var(--hover-button-shadow);
 }
