@@ -11,6 +11,7 @@
     --white-border: rgb(255, 255, 255);
     --search-icon-color: rgb(163, 162, 162);
     --flight-box-color: rgba(255, 255, 255, 0.8);
+    --flight-box-text-color: rgb(60, 60, 60);
     --flight-box-button-color: rgb(123, 182, 251);
     --font-color-about: rgb(43, 43, 43);
     --font-color-icon: rgb(100, 100, 100);
@@ -23,6 +24,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: var(--roboto);
 }
 
 
@@ -56,7 +58,6 @@ nav {
     color: var(--white-color);
     letter-spacing: 2px;
     display: block;
-    font-family: var(--roboto);
     font-size: 26px;
     font-weight: 300;
     text-shadow: var(--text-shadow-menu);
@@ -72,7 +73,6 @@ nav {
 
 .question {
     margin-top: 20vh auto;
-    font-family: var(--roboto);
     font-size: 18px;
     text-align: center;
     color: var(--white-color);
@@ -134,7 +134,7 @@ footer {
     text-align: center;
     color: var(--white-color);
     font-size: 14px;
-    font-family: "Roboto", sans-serif;
+    // font-family: "Roboto", sans-serif;
 }
 
 .logo {
@@ -208,4 +208,100 @@ footer {
     font-size: 13px;
     font-style: italic;
     color: var(--font-color-about);
+}
+
+.box-flight {
+    width: 40%;
+    display: grid;
+    margin: 7vh auto 3vh;
+    padding: 25px 20px;
+    align-items: center;
+    justify-content: center;
+    filter: var(--box-shadow-filter);
+    background-color: var(--flight-box-color);
+    opacity: 80%;
+    color: var(--flight-box-text-color);
+    border-radius: 10px;
+    font-size: 26px;
+    letter-spacing: 1px;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 
+        "date date date"
+        "city-from arrow city-to"
+        "hour-from gap hour-to"
+        "price price select-button";
+}
+
+.date-label {
+    margin-right: 20px;
+    font-weight: 500;
+    font-size: 28px;
+}
+
+#flight-date {
+    font-weight: 300;
+    grid-area: date;
+    margin-bottom: 20px;
+}
+
+#city-from {
+    grid-area: city-from;
+}
+
+#city-to {
+    grid-area: city-to;
+}
+
+.city {
+    text-align: center;
+    margin-bottom: 7px;
+    font-size: 32px;
+}
+
+#hour-from {
+    grid-area: hour-from;
+}
+
+#hour-to {
+    grid-area: hour-to;
+}
+
+.hour {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.arrow {
+    grid-area: arrow;
+}
+
+.price-label {
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+#price {
+    grid-area: price;
+    font-size: 35px;
+}
+
+.currency {
+    font-size: 25px;
+    font-weight: 300;
+}
+
+#select {
+    grid-area: select-button;
+    font-size: 30px;
+    padding: 5px 5px;
+    box-shadow: var(--box-shadow-all);
+    background-color: var(--flight-box-button-color);
+    border: none;
+    color: var(--white-color);
+    border-radius: 10px;
+}
+
+#select:hover{
+    cursor: pointer;
+    filter: var(--box-shadow-filter);
 }
