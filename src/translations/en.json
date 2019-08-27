@@ -1,0 +1,9 @@
+{
+  "weather": {
+    "errors": {
+      "default": "Something went wrong...",
+      "400": "Nothing to geocode",
+      "404": "City not found"
+    }
+  }
+}

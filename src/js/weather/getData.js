@@ -1,35 +1,24 @@
 import {OWM} from './constants';
 import {urlWithParams} from './helpers';
+import {showErrorBox, showData, showLoader} from './manageView';
 
 const addCityNameToParams = cityName => ({
     ...OWM.PARAMS,
     q: cityName,
 });
 
-const getWeather = cityName =>
+const getWeather = cityName => {
+    showLoader();
     fetch(urlWithParams(OWM.URL, addCityNameToParams(cityName)))
         .then(response => response.json())
         .then(data => {
-            switch (data.cod) {
-                case '400':
-                    console.log('getWeather: ', 'Brak danych na wejściu');
-                    break;
-                case '404':
-                    console.log('getWeather: ', 'Nie znaleziono miasta');
-                    break;
-                default:
-                    console.log('getWeather: ', data);
-            }
+            data.cod === '200' ?
+                showData(data) :
+                showErrorBox(data.cod);
         })
-        .catch(e =>
-            console.log('getWeather: ', e)
-        );
+        .catch(showErrorBox);
+};
 
 export {
     getWeather,
 };
-
-// examples
-getWeather('London');
-getWeather('');
-getWeather('Londyn');
