@@ -1,11 +1,8 @@
 import get from 'lodash.get';
-import {OWN_ICON} from './constants';
 import {blank_data, getUnitsText} from './getTranslations';
 
 const getIcon = (element) => {
-    const icon = get(element, 'weather[0].icon', null);
-    if (icon !== null) return OWN_ICON.URL + icon + OWN_ICON.TYPE;
-    return null;
+    return get(element, 'weather[0].icon', '');
 };
 
 const getTemp = (element) => {

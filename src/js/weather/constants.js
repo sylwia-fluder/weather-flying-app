@@ -8,12 +8,6 @@ const OWM = {
     },
 };
 
-const OWN_ICON = {
-    URL: 'http://openweathermap.org/img/wn/',
-    TYPE: '@2x.png',
-};
-
 export {
     OWM,
-    OWN_ICON,
 };
