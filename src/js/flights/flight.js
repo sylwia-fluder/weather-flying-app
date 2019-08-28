@@ -23,28 +23,23 @@ const getFlight = (placeID, departureDate) => {
 };
 
 const getFlightData = async city => {
-  let departureDate = moment()
+  const tomorrowDate = moment()
     .add(1, 'day')
     .format()
     .substr(0, 10);
-  let minPrice;
-  let placeID;
-  let placeName;
-  let country;
-  let carrierID;
-  let carrierName;
 
-  let data = await getPlace(city);
-  placeID = data.Places[0].PlaceId;
-  placeName = data.Places[0].PlaceName;
-  country = data.Places[0].CountryName;
+  const dataPlace = await getPlace(city);
+  const placeID = dataPlace.Places[0].PlaceId;
+  const placeName = dataPlace.Places[0].PlaceName;
+  const country = dataPlace.Places[0].CountryName;
 
-  data = await getFlight(placeID, departureDate);
-  minPrice = data.Quotes[0].MinPrice;
-  carrierID = data.Quotes[0].OutboundLeg.CarrierIds[0];
-  carrierName = data.Carriers.find(carrier => carrier.CarrierId === carrierID)
-    .Name;
-  departureDate = data.Quotes[0].OutboundLeg.DepartureDate;
+  const dataFlight = await getFlight(placeID, tomorrowDate);
+  const minPrice = dataFlight.Quotes[0].MinPrice;
+  const carrierID = dataFlight.Quotes[0].OutboundLeg.CarrierIds[0];
+  const carrierName = dataFlight.Carriers.find(
+    carrier => carrier.CarrierId === carrierID
+  ).Name;
+  const departureDate = dataFlight.Quotes[0].OutboundLeg.DepartureDate;
 
   return new flightData(
     city,
