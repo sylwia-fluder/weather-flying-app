@@ -8,24 +8,20 @@
     --text-shadow-question: 2px 2px 2px rgba(0, 0, 0, 0.25);
     //colors
     --white-color: rgb(255, 255, 255);
+    --cloud-color: rgba(255, 255, 255, 0.562);
     --white-border: rgb(255, 255, 255);
     --search-icon-color: rgb(163, 162, 162);
     --flight-box-color: rgba(255, 255, 255, 0.8);
     --flight-box-button-color: rgb(123, 182, 251);
     --font-color-about: rgb(43, 43, 43);
     --font-color-icon: rgb(100, 100, 100);
+    --plane-color: rgb(161, 231, 252);
+    --loading-text: rgb(153, 153, 153);
+    --plane-error-color: rgb(255, 115, 115);
+    --msg-error-color: rgb(250, 96, 96);
     //fonts
     --roboto: "Roboto", sans-serif;
 }
-
-.inactive {
-    display: none;
-  }
-  
-  .active {
-    display: unset;
-  }
-
 
 * {
     margin: 0px;
@@ -298,4 +294,93 @@ footer {
         width: 80%;
     }
 } 
+
+//loading plane
+
+.loading {
+    position: fixed;
+    top: 20%;
+    left: 45%;
+    width: 10%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
  
+.cloud1, .cloud2, .cloud3 {
+    color: var(--cloud-color);
+    height: 100%;
+    position: absolute;
+    right:0%;
+}
+
+.cloud1 {
+    top: 49%;
+    transform: translateX(100%);
+    animation: clouds 1.5s ease-in-out infinite alternate 0.1s;
+}
+
+.cloud2 {
+    top: 43%;
+    transform: translateX(100%);
+    animation: clouds 1.5s ease infinite alternate 0.3s;
+}
+
+.cloud3 {
+    top: 53%;
+    transform: translateX(100%);
+    animation: clouds 1.5s ease infinite alternate 0.5s;
+}
+
+.plane {
+    color: var(--plane-color);
+    text-shadow: var(--text-shadow-menu);
+    animation: plane 1s ease-in-out infinite alternate;
+}
+
+.plane-error {
+    color: var(--plane-error-color);
+}
+
+.loading h4{
+    margin-top: 1vh;
+    position: absolute;
+    top: 58%;
+    transform: translateY(-75%);
+    color: var(--white-color);
+    text-shadow: var(--text-shadow-menu);
+    font-family: var(--roboto);
+    font-weight: 200;
+}
+
+h4.error-msg {
+    color: var(--msg-error-color);
+}
+
+@keyframes plane {
+    from {
+        transform: translateY(0px)
+    }
+    to {
+        transform: translateY(10px)
+    }
+}
+
+@keyframes clouds {
+    from {
+        right: 0%
+    }
+    to {
+        right: 130%;
+    }
+}
+
+
+.inactive {
+    display: none;
+  }
+  
+  .active {
+    display: unset;
+  }
