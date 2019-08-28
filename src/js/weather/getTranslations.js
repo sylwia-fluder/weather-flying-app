@@ -1,8 +1,11 @@
 import translations from '../../translations/en.json';
+import {OWM} from './constants';
 
 const {
     weather: {
         errors,
+        blank_data,
+        units,
     },
 } = translations;
 
@@ -17,6 +20,12 @@ const getErrorText = (error_code) => {
     }
 };
 
+const getUnitsText = () => {
+    return units[OWM.PARAMS.units];
+};
+
 export {
     getErrorText,
+    getUnitsText,
+    blank_data,
 };

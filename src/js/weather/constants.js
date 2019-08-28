@@ -3,11 +3,17 @@ const OWM = {
     URL: 'https://api.openweathermap.org/data/2.5/forecast',
     PARAMS: {
         appid: OWM_KEY,
-        lang: 'en',
+        lang: 'pl',
         units: 'metric',
     },
 };
 
+const OWN_ICON = {
+    URL: 'http://openweathermap.org/img/wn/',
+    TYPE: '@2x.png',
+};
+
 export {
     OWM,
+    OWN_ICON,
 };

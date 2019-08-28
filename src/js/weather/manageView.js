@@ -1,7 +1,8 @@
 import {getErrorText} from './getTranslations';
+import {manageData} from './manageData';
 
 // TODO: BLOCKED: waiting for html - change to gets elements
-//TODO: BLOCKED: waiting for html - change logic for show/hide elements
+// TODO: BLOCKED: waiting for html - change logic for show/hide elements
 const elementForError = document.getElementById('weather_error');
 const elementForLoader = document.getElementById('weather_loader');
 const elementForData = document.getElementById('weather_data');
@@ -20,10 +21,9 @@ const hideLoader = () => elementForLoader.classList.add('hidden');
 
 const showData = (data) => {
     hideLoader();
+    const weathers = manageData(data);
 
-    console.log(data)
-
-    //TODO: add function for manage data, push data to html
+    //TODO: BLOCKED: waiting for html - push data to html
 };
 
 const hideData = () => elementForData.classList.add('hidden');
