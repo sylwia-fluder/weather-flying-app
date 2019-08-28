@@ -1,8 +1,9 @@
 import getPlace from './places';
 import flightData from './flightData';
+const moment = require('moment');
 
-const getFlight = async (placeID, departureDate) => {
-  return await fetch(
+const getFlight = (placeID, departureDate) => {
+  return fetch(
     `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/PL/PLN/en-GB/WRO-sky/${placeID}/${departureDate}?inboundpartialdate=anytime`,
     {
       method: 'GET',
@@ -22,7 +23,6 @@ const getFlight = async (placeID, departureDate) => {
 };
 
 const getFlightData = async city => {
-  const moment = require('moment');
   let departureDate = moment()
     .add(1, 'day')
     .format()
@@ -34,18 +34,17 @@ const getFlightData = async city => {
   let carrierID;
   let carrierName;
 
-  await getPlace(city).then(data => {
-    placeID = data.Places[0].PlaceId;
-    placeName = data.Places[0].PlaceName;
-    country = data.Places[0].CountryName;
-  });
-  await getFlight(placeID, departureDate).then(data => {
-    minPrice = data.Quotes[0].MinPrice;
-    carrierID = data.Quotes[0].OutboundLeg.CarrierIds[0];
-    carrierName = data.Carriers.find(carrier => carrier.CarrierId === carrierID)
-      .Name;
-    departureDate = data.Quotes[0].OutboundLeg.DepartureDate;
-  });
+  let data = await getPlace(city);
+  placeID = data.Places[0].PlaceId;
+  placeName = data.Places[0].PlaceName;
+  country = data.Places[0].CountryName;
+
+  data = await getFlight(placeID, departureDate);
+  minPrice = data.Quotes[0].MinPrice;
+  carrierID = data.Quotes[0].OutboundLeg.CarrierIds[0];
+  carrierName = data.Carriers.find(carrier => carrier.CarrierId === carrierID)
+    .Name;
+  departureDate = data.Quotes[0].OutboundLeg.DepartureDate;
 
   return new flightData(
     city,

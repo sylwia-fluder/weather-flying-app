@@ -1,5 +1,5 @@
-const getPlace = async city => {
-  return await fetch(
+const getPlace = city => {
+  return fetch(
     `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/PL/PLN/en-GB/?query=${city}`,
     {
       method: 'GET',
