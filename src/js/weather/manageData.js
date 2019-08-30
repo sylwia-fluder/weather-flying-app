@@ -6,14 +6,14 @@ const getIcon = (element) => {
 };
 
 const getTemp = (element) => {
-    let temp = get(element, 'main.temp', null);
+    const temp = get(element, 'main.temp', null);
     if (temp !== null) return temp.toString().split('.')[0] + getUnitsText();
     return blank_data;
 };
 
 const manageData = (data) => {
     let lists = [];
-    let date = new Date();
+    const date = new Date();
     date.getNextDay();
     date.getNoon();
 
