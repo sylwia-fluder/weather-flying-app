@@ -1,0 +1,14 @@
+{
+  "weather": {
+    "errors": {
+      "default": "Something went wrong...",
+      "400": "Nothing to geocode",
+      "404": "City not found"
+    },
+    "blank_data": "N/A",
+    "units": {
+      "metric": "°C",
+      "imperial": "°F"
+    }
+  }
+}
