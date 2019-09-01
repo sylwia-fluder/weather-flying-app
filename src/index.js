@@ -1,5 +1,6 @@
 import '../src/style.scss';
 
+import './singlePageApplication';
 import getFlightData from './js/flights/flight';
 import getWeather from './js/weather/';
 
