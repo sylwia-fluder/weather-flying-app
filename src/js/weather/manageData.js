@@ -44,5 +44,5 @@ const manageData = data => {
 };
 
 export {
-    manageData,
+  manageData,
 };
