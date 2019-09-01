@@ -25,7 +25,7 @@ const createSession = (placeID, departureDate) => {
 };
 const pollResult = sessionKey => {
   return fetch(
-    `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/pricing/uk2/v1.0/${sessionKey}?sortType=duration&sortOrder=asc&stops=0&pageIndex=0&pageSize=10"`,
+    `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/pricing/uk2/v1.0/${sessionKey}?sortType=price&sortOrder=asc&stops=0&pageIndex=0&pageSize=10"`,
     {
       method: 'GET',
       headers: {
@@ -39,7 +39,6 @@ const pollResult = sessionKey => {
       return response.json();
     })
     .catch(err => {
-      console.log(err);
       return err;
     });
 };
@@ -62,6 +61,7 @@ const getFlightData = async city => {
       .get('location')
       .substring(64);
     const dataFlight = await pollResult(sessionKey);
+    console.log(dataFlight);
     const legID = dataFlight.Legs.find(leg => leg.Stops.length === 0).Id;
     const minPrice = dataFlight.Itineraries.find(
       itin => itin.OutboundLegId === legID

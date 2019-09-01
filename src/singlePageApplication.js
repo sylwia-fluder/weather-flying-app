@@ -31,4 +31,4 @@ const singlePageApplication = {
   },
 };
 
-document.addEventListener('DOMContentLoaded', singlePageApplication.init);
+export default singlePageApplication;
