@@ -1,38 +1,55 @@
 import {getErrorText} from './getTranslations';
 import {manageData} from './manageData';
+import {importAllFiles} from './helpers';
+const images = importAllFiles(require.context('../../images/weather-icon/', false));
 
-// TODO: BLOCKED: waiting for html - change to gets elements
-// TODO: BLOCKED: waiting for html - change logic for show/hide elements
-const elementForError = document.getElementById('weather_error');
-const elementForLoader = document.getElementById('weather_loader');
-const elementForData = document.getElementById('weather_data');
+const elementForError = document.getElementById('weather-error');
+const elementForLoader = document.getElementById('weather-loading');
+const boxWeather = document.querySelector('.box-weather');
+const elementForData = document.getElementsByClassName('day');
 
-const showErrorBox = (error_code) => {
-    elementForError.innerText = getErrorText(error_code);
-    hideLoader();
-    elementForError.classList.remove('hidden');
+const showErrorBox = error_code => {
+  elementForError.innerText = getErrorText(error_code);
+  hideLoader();
+  elementForError.classList.remove('inactive');
 };
 
-const hideErrorBox = () => elementForError.classList.add('hidden');
+const hideErrorBox = () => elementForError.classList.add('inactive');
 
-const showLoader = () => hideData() && hideErrorBox() && elementForLoader.classList.remove('hidden');
-
-const hideLoader = () => elementForLoader.classList.add('hidden');
-
-const showData = (data) => {
-    hideLoader();
-    const weathers = manageData(data);
-
-    //TODO: BLOCKED: waiting for html - push data to html
+const showLoader = () => {
+  hideData();
+  elementForLoader.classList.remove('inactive');
 };
 
-const hideData = () => elementForData.classList.add('hidden');
+const hideLoader = () => elementForLoader.classList.add('inactive');
+
+const showData = data => {
+  hideLoader();
+  addDataToBoxWeather(manageData(data));
+  boxWeather.classList.add('show');
+};
+
+const addDataToBoxWeather = weathers => {
+  for (let i = 0; i < weathers.length; i++) {
+    const weatherForDay = weathers[i];
+    const elementDay = elementForData[i];
+
+    elementDay.querySelector('.weather-date').textContent = weatherForDay.date;
+    elementDay.querySelector('.weather-week-day').textContent = weatherForDay.day;
+    elementDay.querySelector('.day-temp').textContent = weatherForDay.temp;
+    elementDay.querySelector('.night-temp').textContent = weatherForDay.temp_night;
+    elementDay.querySelector('.day-icon').src = images[weatherForDay.icon];
+    elementDay.querySelector('.night-icon').src = images[weatherForDay.icon_night];
+  }
+};
+
+const hideData = () => boxWeather.classList.remove('show');
 
 export {
-    showErrorBox,
-    hideErrorBox,
-    showLoader,
-    hideLoader,
-    showData,
-    hideData,
+  showErrorBox,
+  hideErrorBox,
+  showLoader,
+  hideLoader,
+  showData,
+  hideData,
 };
