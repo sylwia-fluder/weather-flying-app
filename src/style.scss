@@ -27,9 +27,9 @@
     display: none;
   }
   
-  .active {
+.active {
     display: unset;
-  }
+}
 
 
 * {
@@ -229,8 +229,19 @@ footer {
     color: var(--font-color-about);
 }
 
-.box-my-flights {
+.no-flights {
+    margin: 7vh auto 3vh;
+    text-align: center;
     width: 55%;
+    font-size: 35px;
+    color: var(--white-color);
+    letter-spacing: 2px;
+    text-shadow: var(--text-shadow-menu);
+    font-weight: 300;
+}
+
+.box-my-flights {
+    width: 50%;
     background-color: var(--flight-box-color);
     opacity: 80%;
     font-size: 25px;
@@ -238,7 +249,7 @@ footer {
     padding: 0 10px 25px;
 }
 
-.box-weather, .box-flight {
+.box-weather, .box-flight, .box-my-flights {
     margin: 7vh auto 3vh;
     align-items: center;
     justify-content: center;
