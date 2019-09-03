@@ -1,3 +1,5 @@
+import getFlightData from './flight';
+
 const flightView = flightData => {
   document.querySelector('.search-result').classList.add('active');
   document.querySelector('.search-result').classList.add('active');
@@ -15,4 +17,10 @@ const flightView = flightData => {
   document.querySelector('.price-label').nextSibling.textContent =
     flightData.price;
 };
-export default flightView;
+
+const getFlight = async city => {
+  try {
+    await flightView(await getFlightData(city));
+  } catch (err) {}
+};
+export default getFlight;

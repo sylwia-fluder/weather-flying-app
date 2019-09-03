@@ -44,47 +44,50 @@ const pollResult = sessionKey => {
 };
 
 const getFlightData = async city => {
-  try {
-    const tomorrowDate = moment()
-      .add(1, 'day')
-      .format()
-      .substr(0, 10);
+  const tomorrowDate = moment()
+    .add(1, 'day')
+    .format()
+    .substr(0, 10);
 
-    const dataPlace = await getPlace(city);
-    if (dataPlace.Places.length === 0)
-      throw Error('Nie znaleziono podanego miasta.');
-    const placeID = dataPlace.Places[0].PlaceId;
-    const placeName = dataPlace.Places[0].PlaceName;
-    const country = dataPlace.Places[0].CountryName;
-    const sessionResponse = await createSession(placeID, tomorrowDate);
-    const sessionKey = await sessionResponse.headers
-      .get('location')
-      .substring(64);
-    const dataFlight = await pollResult(sessionKey);
-    console.log(dataFlight);
-    const legID = dataFlight.Legs.find(leg => leg.Stops.length === 0).Id;
-    const minPrice = dataFlight.Itineraries.find(
-      itin => itin.OutboundLegId === legID
-    ).PricingOptions[0].Price;
-    const departureDate = dataFlight.Legs.find(leg => leg.Id === legID)
-      .Departure;
-    const arriveDate = dataFlight.Legs.find(leg => leg.Id === legID).Arrival;
-    const carrierID = dataFlight.Legs.find(leg => leg.Id === legID).Carriers[0];
-    const carrierName = dataFlight.Carriers.find(
-      carrier => carrier.Id === carrierID
-    ).Name;
-    return new flightData(
-      city,
-      minPrice,
-      placeName,
-      country,
-      carrierName,
-      departureDate,
-      arriveDate
-    );
-  } catch (error) {
-    return error;
+  const dataPlace = await getPlace(city);
+  if (dataPlace.status >= 400) {
+    throw new Error(dataPlace.ValidationErrors[0].Message);
+  } else if (dataPlace.Places.length === 0) {
+    throw new Error('Nie znaleziono podanego miasta.');
   }
+  const placeID = dataPlace.Places[0].PlaceId;
+  const placeName = dataPlace.Places[0].PlaceName;
+  const country = dataPlace.Places[0].CountryName;
+  const sessionResponse = await createSession(placeID, tomorrowDate);
+  if (sessionResponse.status >= 400) {
+    const errorObject = await sessionResponse.json();
+    throw new Error(errorObject.ValidationErrors[0].Message);
+  }
+  const sessionKey = await sessionResponse.headers
+    .get('location')
+    .substring(64);
+  const dataFlight = await pollResult(sessionKey);
+  if (dataFlight.Itineraries.length === 0)
+    throw new Error(`Brak połączenia Wrocław - ${placeName}`);
+  const legID = dataFlight.Legs.find(leg => leg.Stops.length === 0).Id;
+  const minPrice = dataFlight.Itineraries.find(
+    itin => itin.OutboundLegId === legID
+  ).PricingOptions[0].Price;
+  const departureDate = dataFlight.Legs.find(leg => leg.Id === legID).Departure;
+  const arriveDate = dataFlight.Legs.find(leg => leg.Id === legID).Arrival;
+  const carrierID = dataFlight.Legs.find(leg => leg.Id === legID).Carriers[0];
+  const carrierName = dataFlight.Carriers.find(
+    carrier => carrier.Id === carrierID
+  ).Name;
+  return new flightData(
+    city,
+    minPrice,
+    placeName,
+    country,
+    carrierName,
+    departureDate,
+    arriveDate
+  );
 };
 
 export default getFlightData;
