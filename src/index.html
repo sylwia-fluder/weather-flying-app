@@ -28,6 +28,60 @@
             <input type="text" placeholder="Type a city..." name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
+        <section class="search-result inactive">
+            <div class="box-flight">
+                <p id="flight-date"><span class="date-label">Date</span>26/08/2019</p>
+                <p id="city-from" class="city">Wroclaw</p>
+                <img src="<%=require("../src/images/arrow.png")%>" alt="arrow" class="arrow">
+                <p id="city-to" class="city">City</p>
+                <p id="hour-from" class="hour">11:00</p>
+                <p id="hour-to" class="hour">17:00</p>
+                <p id="price"><span class="price-label">Price</span>1000<span class="currency"> PLN</span></p>
+                <button id="select">Select</button>  
+            </div>
+            <div class="box-weather">
+                <div class="day" id="day1">
+                    <p class="weather-date">26/08/2019</p>
+                    <p class="weather-week-day">Monday</p>
+                    <p class="day-label details">Day</p>
+                    <p class="night-label details">Night</p>
+                    <p class="day-temp details">28<span>°C</span></p>
+                    <p class="night-temp details">20<span>°C</span></p>
+                    <img src="" alt="day-icon" class="day-icon details">
+                    <img src="" alt="night-icon" class="night-icon details">
+                </div>
+                <div class="day" id="day2">
+                    <p class="weather-date">27/08/2019</p>
+                    <p class="weather-week-day">Tuesday</p>
+                    <p class="day-label details">Day</p>
+                    <p class="night-label details">Night</p>
+                    <p class="day-temp details">28<span>°C</span></p>
+                    <p class="night-temp details">20<span>°C</span></p>
+                    <img src="" alt="day-icon" class="day-icon details">
+                    <img src="" alt="night-icon" class="night-icon details">
+                </div>
+                <div class="day" id="day3">
+                    <p class="weather-date">28/08/2019</p>
+                    <p class="weather-week-day">Wednesday</p>
+                    <p class="day-label details">Day</p>
+                    <p class="night-label details">Night</p>
+                    <p class="day-temp details">28<span>°C</span></p>
+                    <p class="night-temp details">20<span>°C</span></p>
+                    <img src="" alt="day-icon" class="day-icon details">
+                    <img src="" alt="night-icon" class="night-icon details">
+                </div>
+                <div class="day" id="day4">
+                    <p class="weather-date">29/08/2019</p>
+                    <p class="weather-week-day">Thursday</p>
+                    <p class="day-label details">Day</p>
+                    <p class="night-label details">Night</p>
+                    <p class="day-temp details">28<span>°C</span></p>
+                    <p class="night-temp details">20<span>°C</span></p>
+                    <img src="" alt="day-icon" class="day-icon details">
+                    <img src="" alt="night-icon" class="night-icon details">
+                </div>
+            </div>
+        </section>
         <!-- flights section -->
         <div class="loading">
             <i class="fa fa-fighter-jet fa-5x plane"></i>
@@ -47,7 +101,7 @@
     <section class="my-flights inactive" id="my_flights">
         <nav>
             <ul class="menu">
-                <li><a href="#" class="link " data-target="flights">Flights</a></li>
+                <li><a href="#" class="link" data-target="flights">Flights</a></li>
                 <li><a href="#" class="link" data-target="my_flights">My Flights</a></li>
                 <li><a href="#" class="link" data-target="about">About</a></li>
                 <li><a href="#" class="link" data-target="authors">Authors</a></li>
