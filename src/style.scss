@@ -474,41 +474,29 @@ footer {
         font-size: 16px;
     }
 
-    // .arrow {
-    //     display: none;
-    // }
 }
-
-// @media (max-width: 1100px) {
-    
-//     .box-flight {
-//         font-size: 20px;
-//         grid-template-areas: 
-//         "date date "
-//         "city-from city-to"
-//         "hour-from hour-to"
-//         "price select-button";
-//     }
-
-//     .date-label {
-//         font-size: 22px;
-//     }
-// }
-
-// @media (max-width: 768px) {
-    
-//     .box-flight {
-//         font-size: 18px;
-//     }
-
-//     .date-label {
-//         font-size: 20px;
-//     }
-// }
 
 @media (max-width: 768px) and (max-height:1024px) {   
     .menu a {
         font-size: 18px;     
+    }
+
+    .box-flight {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "date date date date"
+        "city-from city-from city-to city-to"
+        "hour-from hour-from hour-to hour-to"
+        "price price price select-button";
+    }
+
+    .arrow {
+        display: none;
+    }
+
+    #select {
+        margin: 0;
+        padding: 5px 8px;
     }
 } 
 
@@ -524,6 +512,38 @@ footer {
         justify-content: center;
         align-items: center;
         width: 80%;
+    }
+}
+
+@media (max-width: 550px){
+    .box-flight {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "date date"
+        "city-from hour-from"
+        "city-to hour-to"
+        "price price"
+        "select-button select-button";
+    }
+
+    .city {
+        margin-bottom: 10px;
+        justify-self: left;
+    }
+
+    .hour {
+        margin-bottom: 10px;
+    }
+
+    #price {
+        font-size: 1.5em;
+        margin: 10px 0;
+    }
+
+    #select {
+        justify-self: left;
+        margin-top: 10px;
+        padding: 5px 10px;
     }
 } 
 
