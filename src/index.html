@@ -24,7 +24,7 @@
             </ul>
         </nav>
         <h2 class="question">Where do you want to go?</h2>
-        <form class="box-search" action="">
+        <form class="box-search" action=""  id="search-form">
             <input type="text" placeholder="Type a city..." name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
@@ -82,7 +82,6 @@
                 </div>
             </div>
         </section>
-        <!-- flights section -->
     </section>
     <section class="my-flights inactive" id="my_flights">
         <nav>
@@ -93,6 +92,29 @@
                 <li><a href="#" class="link" data-target="authors">Authors</a></li>
             </ul>
         </nav>
+        <div class="no-flights inactive">
+            No flights reserved
+        </div>
+        <div class="box-my-flights inactive">
+            <table class="flights-table">
+                <thead>
+                    <tr class="head-row">
+                        <th>Date</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody class="flights-table-body">
+                    <tr class="inactive">
+                        <td class="td-date">26/08/2019</td>
+                        <td class="td-from"><p class="table-city">Wroclaw</p><p class="table-hour">11:00</p></td>
+                        <td class="td-to"><p class="table-city">Barcelona</p><p class="table-hour">17:00</p></td>
+                        <td class="td-price"><p class="price-text">1000</p><p class="table-currency"> PLN</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <!-- my flights sectiom -->
     </section>
     <section class="about inactive" id="about">
