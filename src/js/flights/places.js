@@ -11,10 +11,15 @@ const getPlace = city => {
     }
   )
     .then(response => {
+      if (!response.ok) throw new Error(`HTTP status code: ${response.status}`);
       return response.json();
     })
+    .then(data => {
+      if (data.Places.length === 0) throw new Error('City not found');
+      return data;
+    })
     .catch(err => {
-      return err;
+      throw err;
     });
 };
 

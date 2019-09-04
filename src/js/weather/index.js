@@ -1,6 +1,6 @@
 import {OWM} from './constants';
 import {urlWithParams} from './helpers';
-import {showErrorBox, showData, showLoader} from './manageView';
+import {showData} from './weatherView';
 
 const addCityNameToParams = cityName => ({
   ...OWM.PARAMS,
@@ -8,15 +8,15 @@ const addCityNameToParams = cityName => ({
 });
 
 const getWeather = cityName => {
-  showLoader();
-  fetch(urlWithParams(OWM.URL, addCityNameToParams(cityName)))
-    .then(response => response.json())
-    .then(data => {
-      data.cod === '200' ?
-          showData(data) :
-          showErrorBox(data.cod);
+  return fetch(urlWithParams(OWM.URL, addCityNameToParams(cityName)))
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP status code: ${response.status}`);
+      return response.json();
     })
-    .catch(showErrorBox);
+    .then(data => showData(data))
+    .catch(err => {
+      throw err;
+    });
 };
 
 export default getWeather;

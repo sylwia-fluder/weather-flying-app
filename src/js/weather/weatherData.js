@@ -43,6 +43,4 @@ const manageData = data => {
   return weathers;
 };
 
-export {
-  manageData,
-};
+export {manageData};
