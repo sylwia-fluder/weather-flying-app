@@ -292,9 +292,9 @@ footer {
     background-color: var(--flight-box-color);
     opacity: 0.8;
     color: var(--flight-box-text-color);
-    font-size: 26px;
+    font-size: 20px;
     letter-spacing: 1px;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas: 
         "date date date"
         "city-from arrow city-to"
@@ -305,13 +305,14 @@ footer {
 .date-label {
     margin-right: 20px;
     font-weight: 500;
-    font-size: 28px;
+    font-size: 1.15em;
 }
 
 #flight-date {
     font-weight: 300;
     grid-area: date;
     margin-bottom: 20px;
+    font-size: 1.1em;
 }
 
 #city-from {
@@ -325,7 +326,7 @@ footer {
 .city {
     text-align: center;
     margin-bottom: 7px;
-    font-size: 32px;
+    font-size: 1.4em;
 }
 
 #hour-from {
@@ -339,38 +340,41 @@ footer {
 .hour {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 1.1em;
 }
 
 .arrow {
     grid-area: arrow;
     justify-self: center;
+    max-width: 80%;
 }
 
 .price-label {
-    margin-right: 20px;
+    margin-right: 10px;
     font-weight: 500;
 }
 
 #price {
     grid-area: price;
-    font-size: 35px;
+    font-size: 1.4em;
 }
 
 .currency {
-    font-size: 25px;
+    font-size: 0.8em;
     font-weight: 300;
 }
 
 #select {
     grid-area: select-button;
-    font-size: 30px;
+    font-size: 1.3em;
     padding: 5px 20px;
     box-shadow: var(--box-shadow-all);
     background-color: var(--flight-box-button-color);
     border: none;
     color: var(--white-color);
     border-radius: 10px;
-    justify-self: center;
+    justify-self: right;
+    margin: 0 10px
 }
 
 #select:hover {
@@ -383,7 +387,7 @@ footer {
     display: grid;
     background-color: var(--weather-box-background-color);
     opacity: 0.95;
-    font-size: 23px;
+    font-size: 20px;
     grid-template-columns: repeat(4, 1fr);
     padding: 25px 5px;
 }
@@ -405,13 +409,13 @@ footer {
 .weather-date {
     grid-column: 1 / end;
     grid-row: 1;
-    font-size: 21px;
+    font-size: 1.05em;
 }
 
 .weather-week-day {
     grid-column: 1 / end;
     grid-row: 2;
-    font-size: 21px;
+    font-size: 1.05em;
 }
 
 .day-label {
@@ -453,39 +457,54 @@ footer {
 }
 //Media queries for mobile
 
+@media (max-width: 1280px){
+    .box-flight {
+        font-size: 18px;
+        width: 45%
+    }
+}
+
 @media (max-width: 1024px) and (max-height:1400px) {    
     .menu a {
         font-size: 20px;     
     }
-}
 
-@media (max-width: 1100px) {
-    
     .box-flight {
-        font-size: 20px;
-
-        grid-template-areas: 
-        "date date "
-        "city-from city-to"
-        "hour-from hour-to"
-        "price select-button";
+        width: 50%;
+        font-size: 16px;
     }
 
-    .date-label {
-        font-size: 22px;
-    }
+    // .arrow {
+    //     display: none;
+    // }
 }
 
-@media (max-width: 768px) {
+// @media (max-width: 1100px) {
     
-    .box-flight {
-        font-size: 18px;
-    }
+//     .box-flight {
+//         font-size: 20px;
+//         grid-template-areas: 
+//         "date date "
+//         "city-from city-to"
+//         "hour-from hour-to"
+//         "price select-button";
+//     }
 
-    .date-label {
-        font-size: 20px;
-    }
-}
+//     .date-label {
+//         font-size: 22px;
+//     }
+// }
+
+// @media (max-width: 768px) {
+    
+//     .box-flight {
+//         font-size: 18px;
+//     }
+
+//     .date-label {
+//         font-size: 20px;
+//     }
+// }
 
 @media (max-width: 768px) and (max-height:1024px) {   
     .menu a {
