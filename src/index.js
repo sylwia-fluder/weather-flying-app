@@ -1,6 +1,12 @@
-import getFlightData from './js/flights/flight';
 import '../src/style.scss';
+import singlePageApplication from './singlePageApplication';
+import getFlight from './js/flights/flightView';
 
-getFlightData('Warszawa')
-  .then()
-  .catch();
+document.addEventListener('DOMContentLoaded', singlePageApplication.init);
+
+const formSearch = document.querySelector('#search-form');
+const inputSearch = formSearch.querySelector('input');
+formSearch.addEventListener('submit', e => {
+  e.preventDefault();
+  getFlight(inputSearch.value);
+});
