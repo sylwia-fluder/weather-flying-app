@@ -24,11 +24,11 @@
             </ul>
         </nav>
         <h2 class="question">Where do you want to go?</h2>
-        <form class="box-search" action="" id="search-form">
-            <input type="text" placeholder="Type a city..." name="search" required>
+        <form class="box-search" action=""  id="search-form">
+            <input type="text" placeholder="Type a city..." name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
-        <section class="search-result-flight inactive">
+        <section class="search-result inactive">
             <div class="box-flight">
                 <p id="flight-date"><span class="date-label">Date</span>26/08/2019</p>
                 <p id="city-from" class="city">Wroclaw</p>
@@ -39,18 +39,14 @@
                 <p id="price"><span class="price-label">Price</span>1000<span class="currency"> PLN</span></p>
                 <button id="select">Select</button>  
             </div>
-        </section>
-        <section class="search-result-weather">
-            <div class="error inactive" id="weather-error">Error</div>
-            <div class="loading inactive" id="weather-loading">Loading...</div>
             <div class="box-weather">
                 <div class="day" id="day1">
                     <p class="weather-date">26/08/2019</p>
                     <p class="weather-week-day">Monday</p>
                     <p class="day-label details">Day</p>
                     <p class="night-label details">Night</p>
-                    <p class="day-temp details">28</p>
-                    <p class="night-temp details">20</p>
+                    <p class="day-temp details">28<span>°C</span></p>
+                    <p class="night-temp details">20<span>°C</span></p>
                     <img src="" alt="day-icon" class="day-icon details">
                     <img src="" alt="night-icon" class="night-icon details">
                 </div>
@@ -59,8 +55,8 @@
                     <p class="weather-week-day">Tuesday</p>
                     <p class="day-label details">Day</p>
                     <p class="night-label details">Night</p>
-                    <p class="day-temp details">28</p>
-                    <p class="night-temp details">20</p>
+                    <p class="day-temp details">28<span>°C</span></p>
+                    <p class="night-temp details">20<span>°C</span></p>
                     <img src="" alt="day-icon" class="day-icon details">
                     <img src="" alt="night-icon" class="night-icon details">
                 </div>
@@ -69,8 +65,8 @@
                     <p class="weather-week-day">Wednesday</p>
                     <p class="day-label details">Day</p>
                     <p class="night-label details">Night</p>
-                    <p class="day-temp details">28</p>
-                    <p class="night-temp details">20</p>
+                    <p class="day-temp details">28<span>°C</span></p>
+                    <p class="night-temp details">20<span>°C</span></p>
                     <img src="" alt="day-icon" class="day-icon details">
                     <img src="" alt="night-icon" class="night-icon details">
                 </div>
@@ -79,14 +75,13 @@
                     <p class="weather-week-day">Thursday</p>
                     <p class="day-label details">Day</p>
                     <p class="night-label details">Night</p>
-                    <p class="day-temp details">28</p>
-                    <p class="night-temp details">20</p>
+                    <p class="day-temp details">28<span>°C</span></p>
+                    <p class="night-temp details">20<span>°C</span></p>
                     <img src="" alt="day-icon" class="day-icon details">
                     <img src="" alt="night-icon" class="night-icon details">
                 </div>
             </div>
         </section>
-        <!-- flights section -->
     </section>
     <section class="my-flights inactive" id="my_flights">
         <nav>
@@ -97,6 +92,29 @@
                 <li><a href="#" class="link" data-target="authors">Authors</a></li>
             </ul>
         </nav>
+        <div class="no-flights inactive">
+            No flights reserved
+        </div>
+        <div class="box-my-flights inactive">
+            <table class="flights-table">
+                <thead>
+                    <tr class="head-row">
+                        <th>Date</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody class="flights-table-body">
+                    <tr class="inactive">
+                        <td class="td-date">26/08/2019</td>
+                        <td class="td-from"><p class="table-city">Wroclaw</p><p class="table-hour">11:00</p></td>
+                        <td class="td-to"><p class="table-city">Barcelona</p><p class="table-hour">17:00</p></td>
+                        <td class="td-price"><p class="price-text">1000</p><p class="table-currency"> PLN</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <!-- my flights sectiom -->
     </section>
     <section class="about inactive" id="about">
