@@ -14,6 +14,7 @@
     --flight-box-color: rgba(255, 255, 255, 0.8);
     --flight-box-text-color: rgb(60, 60, 60);
     --flight-box-button-color: rgb(123, 182, 251);
+    --flight-box-text-color: rgb(60, 60, 60);
     --weather-box-background-color: rgb(123, 182, 251);
     --weather-box-line-color: rgb(130, 130, 130);
     --font-color-about: rgb(43, 43, 43);
@@ -26,9 +27,9 @@
     display: none;
   }
   
-  .active {
+.active {
     display: unset;
-  }
+}
 
 
 * {
@@ -228,12 +229,60 @@ footer {
     color: var(--font-color-about);
 }
 
-.box-weather, .box-flight {
+.no-flights {
+    margin: 7vh auto 3vh;
+    text-align: center;
+    width: 55%;
+    font-size: 35px;
+    color: var(--white-color);
+    letter-spacing: 2px;
+    text-shadow: var(--text-shadow-menu);
+    font-weight: 300;
+}
+
+.box-my-flights {
+    width: 50%;
+    background-color: var(--flight-box-color);
+    opacity: 80%;
+    font-size: 25px;
+    color: var(--flight-box-text-color);
+    padding: 0 10px 25px;
+}
+
+.box-weather, .box-flight, .box-my-flights {
     margin: 7vh auto 3vh;
     align-items: center;
     justify-content: center;
     filter: var(--box-shadow-filter);
     border-radius: 10px;
+}
+
+.flights-table {
+    width: 100%;
+    font-family: var(--roboto);
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.flights-table tr {
+    border-bottom: 1px solid var(--font-color-icon);
+}
+
+.flights-table th, td {
+    padding: 25px;
+}
+
+.flights-table th {
+    font-weight: 500;
+}
+
+.table-currency {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.td-price p {
+    display: inline;
 }
 
 .box-flight {
