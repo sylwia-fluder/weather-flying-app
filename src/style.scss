@@ -441,15 +441,15 @@ footer {
 .day-icon {
     grid-column: 3;
     grid-row: 3;
-    width: 60px;
-    height: 60px;
+    width: 3em;
+    height: 3em;
 }
 
 .night-icon {
     grid-column: 3;
     grid-row: 4;
-    width: 60px;
-    height: 60px;
+    width: 3em;
+    height: 3em;
 }
 
 .details{
@@ -461,6 +461,11 @@ footer {
     .box-flight {
         font-size: 18px;
         width: 45%
+    }
+
+    .box-weather {
+        font-size: 18px;
+        padding: 15px 5px;
     }
 }
 
@@ -474,6 +479,24 @@ footer {
         font-size: 16px;
     }
 
+    .box-weather {
+        font-size: 17px;
+        width: 80%;
+        padding: 8px 5px;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .box-weather {
+        font-size: 16px;
+        width: 85%;
+        padding: 8px 3px;
+    }
+
+    .day{
+        padding: 10px;
+    }
 }
 
 @media (max-width: 768px) and (max-height:1024px) {   
@@ -498,6 +521,33 @@ footer {
         margin: 0;
         padding: 5px 8px;
     }
+
+    .box-weather {
+        width: 60%;
+        font-size: 17px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .day {
+        border: none;
+        padding: 7px;
+    }
+
+    .day:nth-child(odd) {
+
+        border-right: solid 1px var(--weather-box-line-color);
+        // border-image: 
+        // linear-gradient(to bottom, var(--weather-box-line-color), rgba(0, 0, 0, 0)) 1 100%;
+    }
+
+    #day1, #day2 {
+        border-bottom: solid 1px var(--weather-box-line-color);
+    }
+    
+    .details {
+        margin: 0 auto;
+        
+    }
 } 
 
 @media (max-width: 375px) and (max-height:667px) {   
@@ -513,6 +563,8 @@ footer {
         align-items: center;
         width: 80%;
     }
+
+    
 }
 
 @media (max-width: 550px){
@@ -544,6 +596,11 @@ footer {
         justify-self: left;
         margin-top: 10px;
         padding: 5px 10px;
+    }
+
+    .box-weather {
+        width: 70%;
+        font-size: 16px;
     }
 } 
 
