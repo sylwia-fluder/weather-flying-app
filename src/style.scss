@@ -30,10 +30,6 @@
     font-family: var(--roboto);
 }
 
-.active {
-    display: unset;
-}
-
 body {
     height: 100vh;
     min-height: 100%;
@@ -454,6 +450,10 @@ footer {
 
 .inactive {
     display: none;
+}
+
+.active {
+    display: unset;
 }
   
 //Media queries for mobile
