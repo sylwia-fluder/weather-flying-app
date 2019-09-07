@@ -1,6 +1,6 @@
-import {OWM} from './constants';
-import {urlWithParams} from './helpers';
-import {showData} from './weatherView';
+import { OWM } from './constants';
+import { urlWithParams } from './helpers';
+import { showData } from './weatherView';
 
 const addCityNameToParams = cityName => ({
   ...OWM.PARAMS,

@@ -17,6 +17,7 @@ const flightView = flightData => {
 };
 
 const getFlight = async city => {
-  await flightView(await getFlightData(city));
+  const flightData = await getFlightData(city);
+  flightView(flightData);
 };
 export default getFlight;

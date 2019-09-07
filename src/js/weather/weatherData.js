@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import {blank_data, getUnitsText} from './getTranslations';
+import { blank_data, getUnitsText } from './getTranslations';
 
 const getIcon = element => {
   return get(element, 'weather[0].icon', '');
@@ -12,7 +12,7 @@ const getTemp = element => {
 };
 
 const manageData = data => {
-  let lists = [];
+  const lists = [];
   const date = new Date();
   date.getNextDay();
   date.getNoon();
@@ -31,16 +31,21 @@ const manageData = data => {
     }
   });
 
-  let weathers = [];
-  for (let i = 0; i < lists.length - 1; i += 2) {
-    weathers.push({
-      ...lists[i],
-      temp_night: lists[i + 1].temp,
-      icon_night: lists[i + 1].icon,
-    });
-  }
+  const weathers = [];
+  lists.map((element, index) => {
+    if (index % 2 === 0) {
+      const weatherNight = lists[index + 1];
+      if (typeof weatherNight !== 'undefined') {
+        weathers.push({
+          ...element,
+          temp_night: weatherNight.temp,
+          icon_night: weatherNight.icon,
+        })
+      }
+    }
+  });
 
   return weathers;
 };
 
-export {manageData};
+export { manageData };

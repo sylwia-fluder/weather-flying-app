@@ -1,5 +1,5 @@
 const urlWithParams = (url, params) => {
-  let urlFetch = new URL(url);
+  const urlFetch = new URL(url);
   Object.keys(params).forEach(key =>
     urlFetch.searchParams.append(key, params[key])
   );
@@ -7,7 +7,7 @@ const urlWithParams = (url, params) => {
 };
 
 const importAllFiles = r => {
-  let images = {};
+  const images = {};
   r.keys().map(
     item => (images[item.replace('./', '').replace('.png', '')] = r(item))
   );
@@ -47,4 +47,4 @@ Date.prototype.getParseDate = function() {
   return day + '/' + month + '/' + this.getFullYear();
 };
 
-export {urlWithParams, importAllFiles};
+export { urlWithParams, importAllFiles };

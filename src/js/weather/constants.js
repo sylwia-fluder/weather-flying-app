@@ -8,4 +8,4 @@ const OWM = {
   },
 };
 
-export {OWM};
+export { OWM };

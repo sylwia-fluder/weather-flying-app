@@ -1,5 +1,5 @@
-import {manageData} from './weatherData';
-import {importAllFiles} from './helpers';
+import { manageData } from './weatherData';
+import { importAllFiles } from './helpers';
 const images = importAllFiles(
   require.context('../../images/weather-icon/', false)
 );
@@ -11,17 +11,16 @@ const showData = data => {
 };
 
 const addDataToBoxWeather = weathers => {
-  for (let i = 0; i < weathers.length; i++) {
-    const weatherForDay = weathers[i];
-    const elementDay = elementForData[i];
+  weathers.forEach((item, index) => {
+    const elementDay = elementForData[index];
 
-    elementDay.querySelector('.weather-date').textContent = weatherForDay.date;
-    elementDay.querySelector('.weather-week-day').textContent = weatherForDay.day;
-    elementDay.querySelector('.day-temp').textContent = weatherForDay.temp;
-    elementDay.querySelector('.night-temp').textContent = weatherForDay.temp_night;
-    elementDay.querySelector('.day-icon').src = images[weatherForDay.icon];
-    elementDay.querySelector('.night-icon').src = images[weatherForDay.icon_night];
-  }
+    elementDay.querySelector('.weather-date').textContent = item.date;
+    elementDay.querySelector('.weather-week-day').textContent = item.day;
+    elementDay.querySelector('.day-temp').textContent = item.temp;
+    elementDay.querySelector('.night-temp').textContent = item.temp_night;
+    elementDay.querySelector('.day-icon').src = images[item.icon];
+    elementDay.querySelector('.night-icon').src = images[item.icon_night];
+  })
 };
 
-export {showData};
+export { showData };
