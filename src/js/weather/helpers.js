@@ -8,8 +8,8 @@ const urlWithParams = (url, params) => {
 
 const importAllFiles = r => {
   const images = {};
-  r.keys().map(
-    item => (images[item.replace('./', '').replace('.png', '')] = r(item))
+  r.keys().forEach(item =>
+    images[item.replace('./', '').replace('.png', '')] = r(item)
   );
   return images;
 };
