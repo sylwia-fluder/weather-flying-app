@@ -7,6 +7,6 @@ document.addEventListener('DOMContentLoaded', singlePageApplication.init);
 const formSearch = document.querySelector('#search-form');
 const inputSearch = formSearch.querySelector('input');
 formSearch.addEventListener('submit', e => {
-  e.preventDefault();
-  getFlight(inputSearch.value);
+    e.preventDefault();
+    getFlight(inputSearch.value);
 });
