@@ -1,7 +1,7 @@
 ![weather-flying](https://i.imgur.com/1uIOWr4.png)
 
 
-# CAMP GAMES
+# WEATHER FLYING APP
 Project was made during CodersCamp course.  
 The application uses the SkyScanner and OpenWeather API's to display the  
 next flight and the weather for the following days to the destination entered by the user.
