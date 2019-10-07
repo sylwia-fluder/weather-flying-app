@@ -1,8 +1,6 @@
 import getFlightData from './flight';
 
 const flightView = flightData => {
-  document.querySelector('.search-result').classList.add('active');
-  document.querySelector('.search-result').classList.add('active');
   document.querySelector(
     '#flight-date'
   ).lastChild.textContent = flightData.departureDate.slice(0, 10);
@@ -19,8 +17,7 @@ const flightView = flightData => {
 };
 
 const getFlight = async city => {
-  try {
-    await flightView(await getFlightData(city));
-  } catch (err) {}
+  const flightData = await getFlightData(city);
+  flightView(flightData);
 };
 export default getFlight;

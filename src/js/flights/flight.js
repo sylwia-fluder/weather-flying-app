@@ -17,10 +17,11 @@ const createSession = (placeID, departureDate) => {
     }
   )
     .then(response => {
+      if (!response.ok) throw new Error('HTTP status code: ' + response.status);
       return response;
     })
     .catch(err => {
-      return err;
+      throw err;
     });
 };
 const pollResult = sessionKey => {
@@ -36,10 +37,16 @@ const pollResult = sessionKey => {
     }
   )
     .then(response => {
+      if (!response.ok) throw new Error('HTTP status code: ' + response.status);
       return response.json();
     })
+    .then(data => {
+      if (data.Itineraries.length === 0)
+        throw new Error('No connection from Wroclaw');
+      return data;
+    })
     .catch(err => {
-      return err;
+      throw err;
     });
 };
 
@@ -48,27 +55,15 @@ const getFlightData = async city => {
     .add(1, 'day')
     .format()
     .substr(0, 10);
-
   const dataPlace = await getPlace(city);
-  if (dataPlace.status >= 400) {
-    throw new Error(dataPlace.ValidationErrors[0].Message);
-  } else if (dataPlace.Places.length === 0) {
-    throw new Error('Nie znaleziono podanego miasta.');
-  }
   const placeID = dataPlace.Places[0].PlaceId;
   const placeName = dataPlace.Places[0].PlaceName;
   const country = dataPlace.Places[0].CountryName;
   const sessionResponse = await createSession(placeID, tomorrowDate);
-  if (sessionResponse.status >= 400) {
-    const errorObject = await sessionResponse.json();
-    throw new Error(errorObject.ValidationErrors[0].Message);
-  }
   const sessionKey = await sessionResponse.headers
     .get('location')
     .substring(64);
   const dataFlight = await pollResult(sessionKey);
-  if (dataFlight.Itineraries.length === 0)
-    throw new Error(`Brak połączenia Wrocław - ${placeName}`);
   const legID = dataFlight.Legs.find(leg => leg.Stops.length === 0).Id;
   const minPrice = dataFlight.Itineraries.find(
     itin => itin.OutboundLegId === legID
